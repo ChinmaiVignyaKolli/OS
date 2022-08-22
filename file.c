@@ -1,0 +1,74 @@
+#include<stdio.h>
+
+struct student{
+char name[5];
+int roll;
+int age;
+float com1,com2,com3,com4;
+float GPA;
+float CGPA;
+};
+void create();
+int a;
+
+int main(){
+int k,i;
+float w,x,y,z;
+printf("Enter the no of students");
+scanf("%d",&k);
+struct student s[k];
+FILE* fd,*fe,*ff,*fg;
+for(i=0;i<k;i++){
+printf("Enter the semester");
+scanf("%d",&a);
+void create();
+
+printf("enter name");
+scanf("%s",s[i].name);
+
+printf("enter rno");
+scanf("%d",&s[i].roll);
+printf("enter com1,com2,com3,com4");
+scanf("%f %f %f %f",&s[i].com1,&s[i].com2,&s[i].com3,&s[i].com4);
+s[i].GPA=(s[i].com1+s[i].com2+s[i].com3+s[i].com4)/4;
+if(a==1){
+s[i].CGPA=s[i].GPA;
+fprintf(fd,"%s %d %f %f %f %f %f",s[i].name,s[i].roll,s[i].com1,s[i].com2,s[i].com3,s[i].com4);
+}
+else{
+ w =fscanf(fd,"%f",&s[i].GPA);
+ x =fscanf(fe,"%f",&s[i].GPA);
+ y =fscanf(ff,"%f",&s[i].GPA);
+ z =fscanf(fg,"%f",&s[i].GPA);
+
+if(a==2)
+s[i].CGPA=(w+x)/2;
+else if(a==3)
+s[i].CGPA=(w+x+y)/3;
+else if(a==4)
+s[i].CGPA=(w+x+y+z)/4;
+fprintf(fd,"%s%d%f%f%f%f%f",s[i].name,s[i].roll,s[i].com1,s[i].com2,s[i].com3,s[i].com4);
+}
+}
+
+return (0);
+}
+
+void create(){
+
+
+FILE* fd,*fe,*ff,*fg;
+if(a==1)
+fd=fopen("sem1.txt","a+");
+else if(a==2)
+fd=fopen("sem2.txt","a+");
+else if(a==3)
+{
+fd=fopen("sem3.txt","a+");
+}
+else
+{
+fd=fopen("sem4.txt","a+");
+}
+}
+
